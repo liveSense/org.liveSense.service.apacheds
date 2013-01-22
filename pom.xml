@@ -87,25 +87,25 @@
 			<artifactId>apacheds-interceptor-kerberos</artifactId>
 			<version>${apacheds.version}</version>
 		</dependency>
-
 		<dependency>
-			<groupId>org.apache.directory.shared</groupId>
-			<artifactId>shared-ldap-codec-core</artifactId>
-			<version>${apacheds.shared.version}</version>
+			<groupId>org.apache.directory.server</groupId>
+			<artifactId>apacheds-server-config</artifactId>
+			<version>${apacheds.version}</version>
+			
+		</dependency>
+		<dependency>
+			<groupId>org.apache.directory.server</groupId>
+			<artifactId>apacheds-service-builder</artifactId>
+			<version>${apacheds.version}</version>
 		</dependency>
 
+		<!-- 
 		<dependency>
-			<groupId>org.apache.directory.shared</groupId>
-			<artifactId>shared-ldap-schema-data</artifactId>
-			<version>${apacheds.shared.version}</version>
+			<groupId>org.apache.directory.server</groupId>
+			<artifactId>apacheds-http-integration</artifactId>
+			<version>${apacheds.version}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.apache.directory.shared</groupId>
-			<artifactId>shared-ldap-extras-util</artifactId>
-			<version>${apacheds.shared.version}</version>
-		</dependency>
-
+		-->
 
 		<dependency>
 			<groupId>org.apache.felix</groupId>
