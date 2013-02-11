@@ -9,6 +9,7 @@ import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Deactivate;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceRegistration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,6 +19,7 @@ public class EmbeddedDirectoryServerActivator {
 	/** The directory service */
 	public CacheService cacheService;
 	public ApacheDsService service;
+	ServiceRegistration serviceReg;
 
 	static Logger log = LoggerFactory.getLogger(EmbeddedDirectoryServerActivator.class);
 
@@ -54,6 +56,7 @@ public class EmbeddedDirectoryServerActivator {
 			cacheService = new CacheService();
 			service = new ApacheDsService();
 			service.start(new InstanceLayout(workDir), cacheService);
+			serviceReg = context.registerService(ApacheDsService.class.getName(), service, null);
 
 		} catch (IOException e) {
 			log.error("Error activating Apache Directory Service", e);
@@ -79,6 +82,13 @@ public class EmbeddedDirectoryServerActivator {
 					cacheService.destroy();
 				} catch(Exception e) {
 					log.error("Cache Service shutdown" ,e);
+				}
+			}
+			if (serviceReg != null) {
+				try {
+					context.ungetService(serviceReg.getReference());
+				} catch (Throwable th) {
+					log.error("Error on unget service", serviceReg);
 				}
 			}
 
