@@ -350,7 +350,7 @@ public class ApacheDsService
 			return;
 		}
 
-		printBanner( BANNER_LDAP );
+		//printBanner( BANNER_LDAP );
 
 		ldapServer.setDirectoryService( directoryService );
 
