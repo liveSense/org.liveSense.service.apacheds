@@ -20,6 +20,11 @@
 		<version>2-SNAPSHOT</version>
 		<relativePath>..</relativePath>
 	</parent>
+	<scm>
+		<connection>scm:git:https://github.com/liveSense/org.liveSense.service.apacheds.git</connection>
+		<developerConnection>scm:git:https://github.com/liveSense/org.liveSense.service.apacheds.git</developerConnection>
+		<url>https://github.com/liveSense/org.liveSense.service.apacheds</url>
+	</scm>
 
 	<artifactId>org.liveSense.service.apacheds</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
